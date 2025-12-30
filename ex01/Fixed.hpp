@@ -6,12 +6,12 @@
 class Fixed
 {
 	private :
-		int					value;
-		static const int	n;
+		int					rawBits;
+		static const int	fractionalBits;
 
 	public :
 		Fixed();
-		Fixed(const int value);
+		Fixed(const int rawBits);
 		Fixed(const float f);
 		Fixed(const Fixed &f);
 		Fixed &operator=(const Fixed &f);
@@ -23,6 +23,6 @@ class Fixed
 		int		toInt(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &output,Fixed const fixed);
+std::ostream	&operator<<(std::ostream &output,Fixed const &fixed);
 
 #endif

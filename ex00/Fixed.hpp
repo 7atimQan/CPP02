@@ -6,12 +6,12 @@
 class Fixed
 {
 	private :
-		int					value;
-		static const int	n;
+		int					rawBits;
+		static const int	fractionalBits;
 
 	public :
 		Fixed();
-		Fixed(int value);
+		Fixed(int rawBits);
 		Fixed(const Fixed &f);
 		Fixed &operator=(const Fixed &f);
 		~Fixed();

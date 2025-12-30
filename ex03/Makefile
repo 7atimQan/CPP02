@@ -2,12 +2,12 @@ NAME = fixed
 CXX = c++
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Fixed.cpp
+SRCS =	main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) Fixed.hpp
+$(NAME): $(OBJS) Fixed.hpp Point.hpp
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
