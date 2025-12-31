@@ -22,7 +22,7 @@ Fixed::Fixed(const Fixed &f) {
 	*this = f;
 }
 
-Fixed &Fixed::operator=(const Fixed &f) {
+Fixed const &Fixed::operator=(const Fixed &f) {
 	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f) {
 		rawBits = f.getRawBits();
@@ -103,6 +103,7 @@ Fixed	&Fixed::operator*(const Fixed &fixed) {
 Fixed	const &Fixed::operator/(const Fixed &fixed) {
 	// rawBits/= fixed.getRawBits() / 256;
 	rawBits = (this->getRawBits() / pow(2, fractionalBits)) / fixed.getRawBits();
+	return (*this);
 }
 
 //overloaded min and max

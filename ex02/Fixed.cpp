@@ -14,7 +14,7 @@ Fixed::Fixed(const int rawBits) {
 
 Fixed::Fixed(const float f) {
 	// std::cout << "Float Contructor called" << std::endl; 
-	rawBits = roundf(f * pow(2, fractionalBits));
+	rawBits = roundf(f * (1 << fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &f) {
@@ -46,7 +46,7 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat(void) const {
-	return ((float)this->getRawBits() / (float)pow(2, fractionalBits));
+	return ((float)this->getRawBits() / (float)(1 << fractionalBits));
 }
 
 int		Fixed::toInt(void) const {
@@ -96,13 +96,12 @@ Fixed	&Fixed::operator-(const Fixed &fixed) {
 }
 
 Fixed	&Fixed::operator*(const Fixed &fixed) {
-	rawBits*= fixed.getRawBits() / pow(2, fractionalBits);
+	rawBits*= fixed.getRawBits() / (1 << fractionalBits);
 	return (*this);
 }
 
 Fixed	const &Fixed::operator/(const Fixed &fixed) {
-	// rawBits/= fixed.getRawBits() / 256;
-	rawBits = (this->getRawBits() / pow(2, fractionalBits)) / fixed.getRawBits();
+	rawBits = (this->getRawBits() / (1 << fractionalBits)) / fixed.getRawBits();
 }
 
 //overloaded min and max

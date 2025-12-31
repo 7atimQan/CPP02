@@ -16,7 +16,7 @@ class Fixed
 		Fixed(const int rawBits);
 		Fixed(const float f);
 		Fixed(const Fixed &f);
-		Fixed &operator=(const Fixed &f);
+		Fixed const &operator=(const Fixed &f);
 		~Fixed();
 
 		//get_set
